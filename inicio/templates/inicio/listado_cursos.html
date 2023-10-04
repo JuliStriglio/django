@@ -7,6 +7,8 @@ Cursos
 {% endblock h1_header %}
 
 {% block main_content %}
+
+<a class="btn btn-primary" href= {% url "crear_curso" %}>Crear curso</a>
 <form action=""  >
        {{formulario}}
     <input type="submit" value = 'Buscar'>
@@ -15,7 +17,9 @@ Cursos
 
 <ul>
     {% for curso in cursos_encontrados %}
-    <li>{{curso}}</li>
+    <li><a href={% url "detalle_curso" curso.id %}>{{curso}} </a>|| <a href={% url "editar_curso" curso.id  %}>Editar</a> || <a href={% url "eliminar_curso" curso.id  %}>Eliminar</a>
+
+    </li>
     {% endfor %}
 </ul>
 {% endblock main_content %}

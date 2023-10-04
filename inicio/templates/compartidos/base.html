@@ -24,9 +24,9 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="/">Inicio</a>
-                <a class="btn btn-primary" href="/cursos/crear">Crear curso</a>
-                <a class="btn btn-primary" href="/cursos">Cursos</a>
+                <a class="navbar-brand" href={% url "inicio" %}>Inicio</a>
+                <a class="btn btn-primary" href={% url "cursos" %}>Cursos</a>
+                <a class="btn btn-primary" href={% url "paletas" %}>Paletas</a>
             </div>
         </nav>
         <!-- Masthead-->
