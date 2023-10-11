@@ -1,23 +1,23 @@
 {% extends "compartidos/base.html" %}
 {% block head %}
-<title>Editar paleta</title>
+<title>Editar perfil</title>
 {% endblock head %}
 {% block h1_header %}
-Editar paleta
+Editar perfil
 {% endblock h1_header %}
 
 {% block main_content %}
 
-<form action= {% url "editar_paleta" paleta.id %} method = 'post' >
+<form action={% url "editar_perfil" %} method = 'post' enctype = "multipart/form-data">
     {% csrf_token %}
 
     <table>
-        {{form}}
-        {{form.media}}
+        {{formulario}}
     </table>
 
  
     <input type="submit" value = 'Editar'>
+    <a href="{% url "editar_pass" %}">Cambiar constraseña</a>
 
 </form>
 

@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from datetime import datetime
 from inicio.models import Curso
 from inicio.forms import crearCursoFormulario, cursoBusquedaFormulario, editarCursoFormulario, cursoFormularioBase
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -56,7 +57,7 @@ def crear_curso(request) :
     return render(request, r'inicio\crear_curso.html', {'formulario' : formulario})
 
 
-
+@login_required
 def editar_curso(request, curso_id):
     curso_a_editar=Curso.objects.get(id=curso_id)
     
@@ -94,6 +95,7 @@ def listado_cursos(request) :
     return render(request, r'inicio\listado_cursos.html', {'formulario' : formulario, 'cursos_encontrados' : cursos_encontrados})
 
 
+@login_required
 def eliminar_curso(request, curso_id):
     curso_a_eliminar=Curso.objects.get(id=curso_id)
     curso_a_eliminar.delete()
